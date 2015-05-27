@@ -2,4 +2,12 @@
 <resources>
     <string name="app_name">Alchotalogo</string>
     <string name="action_settings">Ajustes</string>
+
+    <!-- LoginActivity -->
+    <string name="login">Ingresar</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="error_login">Usuario o Contraseña son incorrectos</string>
+    <string name="options">Opciones</string>
+
 </resources>

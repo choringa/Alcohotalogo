@@ -23,20 +23,22 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/editText" />
+                android:id="@+id/et_username"
+                android:hint="@string/username" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/editText2" />
+                android:id="@+id/et_password"
+                android:hint="@string/password" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button" />
+                android:text="@string/login"
+                android:id="@+id/btnLogin" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

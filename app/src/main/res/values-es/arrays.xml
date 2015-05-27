@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="options_marker">
+        <item>Agregar Tienda</item>
+        <item>Salir</item>
+    </string-array>
+</resources>
