@@ -1,5 +1,6 @@
 package co.com.indi.alcohotalogo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import asynctasks.LoginAsyncTask;
+import mundo.Usuario;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -27,6 +31,16 @@ public class LoginActivity extends ActionBarActivity {
      * Atributos de verificacion de usuario.
      */
     private EditText username, password;
+
+    /**
+     * Atributo del usuario.
+     */
+    private Usuario usuario;
+
+    /**
+     * Atributo del progressDialog (ruedita de cargando)
+     */
+    private ProgressDialog progressDialog;
 
     //----------------------------------
     //CONSTANTES
@@ -60,8 +74,12 @@ public class LoginActivity extends ActionBarActivity {
      */
     private void verificarUsuario() {
         Log.d(TAG, "verificarUsuario, username= " + username.getText() + ", pass= " + password.getText());
-        if(username.getText().toString().equals("user") && password.getText().toString().equals("user")){
+        String[] params = {username.getText().toString(), password.getText().toString()};
+        progressDialog = ProgressDialog.show(this, getResources().getString(R.string.title_progress), getResources().getString(R.string.ret_info), true);
+        new LoginAsyncTask(this).execute(params);
+        if(usuario != null){
             Intent intent = new Intent(this, MapActivity.class);
+            intent.putExtra("usuario", usuario);
             startActivity(intent);
         }
         else{
@@ -91,4 +109,11 @@ public class LoginActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void setUsuario(Usuario usuario){
+        if(progressDialog.isShowing())
+            progressDialog.dismiss();
+        this.usuario = usuario;
+    }
+
 }

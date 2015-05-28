@@ -9,5 +9,7 @@
     <string name="password">Contraseña</string>
     <string name="error_login">Usuario o Contraseña son incorrectos</string>
     <string name="options">Opciones</string>
+    <string name="title_progress">Espere</string>
+    <string name="ret_info">Verificando información de usuario...</string>
 
 </resources>

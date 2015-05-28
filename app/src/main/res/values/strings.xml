@@ -10,5 +10,7 @@
     <string name="error_login">Username or Password are incorrect</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="options">Options</string>
+    <string name="title_progress">Wait</string>
+    <string name="ret_info">Verifying user information...</string>
 
 </resources>
