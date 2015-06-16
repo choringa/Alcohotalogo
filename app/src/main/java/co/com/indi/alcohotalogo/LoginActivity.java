@@ -49,7 +49,7 @@ public class LoginActivity extends ActionBarActivity {
     private final static String TAG = "LoginActivity";
 
     //----------------------------------
-    //METODOS
+    //METODOS OVERRIDE
     //----------------------------------
 
     @Override
@@ -69,29 +69,10 @@ public class LoginActivity extends ActionBarActivity {
         });
     }
 
-    /**
-     * Metodo que verifica el usuario
-     */
-    private void verificarUsuario() {
-        Log.d(TAG, "verificarUsuario, username= " + username.getText() + ", pass= " + password.getText());
-        String[] params = {username.getText().toString(), password.getText().toString()};
-        progressDialog = ProgressDialog.show(this, getResources().getString(R.string.title_progress), getResources().getString(R.string.ret_info), true);
-        new LoginAsyncTask(this).execute(params);
-        if(usuario != null){
-            Intent intent = new Intent(this, MapActivity.class);
-            intent.putExtra("usuario", usuario);
-            startActivity(intent);
-        }
-        else{
-            Toast toast = Toast.makeText(this,getResources().getString(R.string.error_login),Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+            getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 
@@ -110,10 +91,43 @@ public class LoginActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //----------------------------------
+    //METODOS
+    //----------------------------------
+
+    /**
+     * Metodo que verifica el usuario
+     */
+    private void verificarUsuario() {
+        Log.d(TAG, "verificarUsuario, username= " + username.getText() + ", pass= " + password.getText());
+        String[] params = {username.getText().toString(), password.getText().toString()};
+        progressDialog = ProgressDialog.show(this, getResources().getString(R.string.title_progress), getResources().getString(R.string.ret_info), true);
+        new LoginAsyncTask(this).execute(params);
+    }
+
+    /**
+     * Metodo que setea el usuario y pasa a la otra actividad si fue correcto el login
+     * @param usuario
+     */
     public void setUsuario(Usuario usuario){
-        if(progressDialog.isShowing())
-            progressDialog.dismiss();
+
         this.usuario = usuario;
+
+        if(usuario != null){
+            Intent intent = new Intent(this, MapActivity.class);
+            intent.putExtra("usuario", usuario);
+            if(progressDialog.isShowing())
+                progressDialog.dismiss();
+            startActivity(intent);
+        }
+        else{
+            if(progressDialog.isShowing())
+                progressDialog.dismiss();
+            Toast toast = Toast.makeText(this,getResources().getString(R.string.error_login),Toast.LENGTH_LONG);
+            toast.show();
+            username.setError("paila login");
+        }
+
     }
 
 }

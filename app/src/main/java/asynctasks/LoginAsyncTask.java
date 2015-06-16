@@ -72,10 +72,10 @@ public class LoginAsyncTask extends AsyncTask<String,Void, Usuario>{
         ManejadorConexion request = new ConexionConfig();
         try {
             SoapObject soapObject = (SoapObject) request.consumirServicio2(ConexionConfig.METHOD_DAR_USUARIO, nombresParametros, valoresParametros).getProperty(0);
-            int idUsuarioU = (int) soapObject.getProperty("idUsuario");
-            String nombreU = (String) soapObject.getProperty("nombre");
-            String usernameU = (String) soapObject.getProperty("username");
-            int tipoU = (int) soapObject.getProperty("tipo");
+            int idUsuarioU = Integer.parseInt(soapObject.getProperty("idUsuario").toString());
+            String nombreU = soapObject.getProperty("nombre").toString();
+            String usernameU = soapObject.getProperty("username").toString();
+            int tipoU = Integer.parseInt( soapObject.getProperty("tipo").toString());
             user = new Usuario(idUsuarioU,nombreU,usernameU,tipoU);
         } catch (Exception e) {
             e.printStackTrace();

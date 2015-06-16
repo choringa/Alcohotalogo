@@ -13,4 +13,21 @@
     <string name="title_progress">Wait</string>
     <string name="ret_info">Verifying user information...</string>
 
+    <!--Menu general-->
+    <string name="menu_logout">Logout</string>
+
+    <!--Menu 2-->
+    <string name="menu_add_shop">Add Shop</string>
+    <string name="menu_delete_shop">Delete Shop</string>
+    
+    <!--Menu 3-->
+    <string name="menu_best_shops">Best Shops</string>
+    
+    <!--Menu 4 -->
+    <string name="menu_register">Register</string>
+    <string name="menu_login">Login</string>
+
+    <!--Actions-->
+    <string name="action_add_shop_map_activity">Tab once anywhere on the map to add a shop</string>
+
 </resources>

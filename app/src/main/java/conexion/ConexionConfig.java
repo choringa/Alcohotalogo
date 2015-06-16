@@ -10,12 +10,12 @@ public class ConexionConfig extends ManejadorConexion{
     /**
      * Protocolo y ubicación del servicio a consultar
      */
-    private final static String NAME_SPACE = "http://ws/";
+    private final static String NAME_SPACE = "http://WS/";
 
     /**
      * Ubicación de despliegue y nombre del servicio (schema location)
      */
-    private final static String NOMBRE_SERVICIO = "http://192.168.0.6:8080/ElVeciWS/ElVeciWS?wsdl";
+    private final static String NOMBRE_SERVICIO = "http://192.168.0.17:8080/ElVeciWS/ElVeciWS?wsdl";
 
     /**
      * Línea que permite configurar la conexión http en Android

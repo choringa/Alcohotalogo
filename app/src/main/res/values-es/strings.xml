@@ -12,4 +12,21 @@
     <string name="title_progress">Espere</string>
     <string name="ret_info">Verificando información de usuario...</string>
 
+    <!--Menu general-->
+    <string name="menu_logout">Salir</string>
+
+    <!--Menu 2-->
+    <string name="menu_add_shop">Añadir Tienda</string>
+    <string name="menu_delete_shop">Eliminar Tienda</string>
+
+    <!--Menu 3-->
+    <string name="menu_best_shops">Mejores Tiendas</string>
+
+    <!--Menu 4 -->
+    <string name="menu_register">Registrarse</string>
+    <string name="menu_login">Ingresar</string>
+
+    <!--Actions-->
+    <string name="action_add_shop_map_activity">Toque una vez en cualquier lugar del mapa para añadir una tienda</string>
+
 </resources>
